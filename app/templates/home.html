@@ -3,13 +3,31 @@
 
 {% block content %}
 
-<div class="m-3">
+<div class="m-2 ">
   <h1>Chase goals!</h1>
   <a class="btn btn-primary" href="{% url 'add goals'%}">Add</a>
 </div>
 {% for goal in goals_list %}
 <div class="card m-2">
-  <h5><span>{{goal.id_goal}}</span> - {{goal.name_goal}}</h5>
+    <div class="card-body">
+    <div class="row">
+        <div class="col">
+            <div class="card-title">
+                <h5><span>{{goal.id_goal}}</span> - {{goal.name_goal}}</h5>
+            </div>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{goal.date_created}}</h6>
+          
+        </div>
+        <div class="col-md-0 mr-2">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" {% if goal.is_achieved %} checked {% endif %}>
+            </div>
+        </div>
+      </div>
+    
+    
+  
+</div>
 </div>
 {% endfor %}
 
