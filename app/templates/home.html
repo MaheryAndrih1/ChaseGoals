@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% load static %}
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href={% static "css/bootstrap.min.css"%}>
-    <link rel="stylesheet" href={% static "css/styles.css"%}>
-  </head>
-  <body>
-    <div class="m-3">
-      <h1>Chase goals!</h1>
-      <button class="btn btn-primary" href="/add_goals">Add</button>
-    </div>
-    {% for goal in goals_list %}
-    <div class="card m-2 ">
-        
-        <h5><span>{{goal.id_goal}}</span> - {{goal.name_goal}} </h5>
-    </div>
-    {% endfor %}
-    
-  </body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="m-3">
+  <h1>Chase goals!</h1>
+  <a class="btn btn-primary" href="{% url 'add goals'%}">Add</a>
+</div>
+{% for goal in goals_list %}
+<div class="card m-2">
+  <h5><span>{{goal.id_goal}}</span> - {{goal.name_goal}}</h5>
+</div>
+{% endfor %}
+
+{% endblock %}
