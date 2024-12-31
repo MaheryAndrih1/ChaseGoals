@@ -15,7 +15,6 @@ def add_goals(request):
         form = GoalForm(request.POST)
         if form.is_valid:
             goal=form.save()
-            print('posted')
     else:
         form = GoalForm()
             
