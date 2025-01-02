@@ -1,0 +1,15 @@
+body {
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><circle cx="8" cy="8" r="8" fill="black" /></svg>') 8 8, auto;
+}
+
+.check-c i{
+    font-size: 2rem;
+}
+
+.check-c{
+    text-decoration: none;
+    color: inherit;
+}
+.check-c i:hover{
+    color: green;
+}
