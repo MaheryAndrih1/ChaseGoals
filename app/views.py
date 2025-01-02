@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Goal
 from .forms import GoalForm
 
@@ -10,7 +10,7 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
-def add_goals(request):
+def add_goal(request):
     if request.method == "POST":
         form = GoalForm(request.POST)
         if form.is_valid:
@@ -18,5 +18,20 @@ def add_goals(request):
     else:
         form = GoalForm()
             
-    return render(request, 'add_goals.html', {"form": form})
+    return render(request, 'add goal.html', {"form": form})
 
+def delete_goal(request, goal_id):
+    goal = Goal.objects.get(pk = goal_id)
+    goal.delete()
+    return redirect('home')
+
+def achieved_goal(request, goal_id):
+    goal = Goal.objects.get(pk = goal_id)
+    goal.is_achieved = not goal.is_achieved
+    goal.save()
+    return redirect('home')
+
+def modify_goal(request, goal_id):
+    goal = Goal.objects.get(pk = goal_id)
+    print('modify called')
+    return redirect('home')

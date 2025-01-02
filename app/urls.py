@@ -2,5 +2,8 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path('', views.home, name='home'),
-    path('add_goals/', views.add_goals, name='add goals')
+    path('add_goal/', views.add_goal, name='add goal'),
+    path('delete_goal/<int:goal_id>/', views.delete_goal, name='delete goal'),
+    path('modify_goal/<int:goal_id>/',views.modify_goal, name='modify goal'),
+    path('achieved_goal/<int:goal_id>/', views.achieved_goal, name="achieved goal" ),
 ]
