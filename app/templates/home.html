@@ -5,42 +5,47 @@
 
 <div class="m-2">
   <h1>Chase goals!</h1>
-  <a class="btn btn-primary" href="{% url 'add goal'%}">Add</a>
+  <a class="btn btn-primary" href="{% url 'add goal' %}">Add</a>
 </div>
+
 {% for goal in goals_list %}
 <div class="card m-2">
   <div class="card-body">
-    <div class="row">
-      <div class="col-md-11">
+    <div class="row align-items-center">
+      <div class="col-11">
         <div class="card-title">
-          <h5><span>{{goal.id_goal}}</span> - {{goal.name_goal}}</h5>
+          <h5><span>{{ goal.id_goal }}</span> - {{ goal.name_goal }}</h5>
         </div>
         <h6 class="card-subtitle mb-2 text-body-secondary">
-          {{goal.date_created}}
+          {{ goal.date_created }}
         </h6>
       </div>
       
-      <div class="col-md-1">
-          <a class="check-c" href={% url 'achieved goal' goal.id_goal %}>
-            {% if goal.is_achieved %} 
-            <i class="bi bi-check-circle-fill" style="color: green"></i>
-            {% else %}
-            <i class="bi bi-check-circle"></i>
-            {% endif %}
-          </a>
-          <button class="btn pb-3" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+      <div class="col-1 d-flex justify-content-end">
+        <a class="check-c me-2" href="{% url 'achieved goal' goal.id_goal %}">
+          {% if goal.is_achieved %} 
+          <i class="bi bi-check-circle-fill" style="color: green"></i>
+          {% else %}
+          <i class="bi bi-check-circle"></i>
+          {% endif %}
+        </a>
+        <div class="dropdown">
+          <button class="btn p-0 mt-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-three-dots-vertical"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-dark">
             <li>
-              <a class="dropdown-item" href={% url 'delete goal' goal.id_goal %}> Delete</a>
+              <a class="dropdown-item" href="{% url 'delete goal' goal.id_goal %}">Delete</a>
             </li>
-            <li><a class="dropdown-item" href="{% url 'modify goal' goal.id_goal %}"> Modify </a></li>
-          </ul> 
+            <li>
+              <a class="dropdown-item" href="{% url 'update goal' goal.id_goal %}">Update</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      
     </div>
   </div>
 </div>
+{% endfor %}
 
-{% endfor %} {% endblock %}
+{% endblock %}
