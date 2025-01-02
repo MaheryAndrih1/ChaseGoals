@@ -31,7 +31,7 @@ def achieved_goal(request, goal_id):
     goal.save()
     return redirect('home')
 
-def modify_goal(request, goal_id):
+def update_goal(request, goal_id):
     goal = Goal.objects.get(pk = goal_id)
-    print('modify called')
+    print('Update called')
     return redirect('home')

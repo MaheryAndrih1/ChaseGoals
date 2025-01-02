@@ -6,6 +6,9 @@ body {
     font-size: 2rem;
 }
 
+.p-0{
+    translate: 0 4px  ;
+}
 .check-c{
     text-decoration: none;
     color: inherit;
