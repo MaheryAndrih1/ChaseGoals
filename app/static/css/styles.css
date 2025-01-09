@@ -1,5 +1,5 @@
-body {
-    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><circle cx="8" cy="8" r="8" fill="black" /></svg>') 8 8, auto;
+html {
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><circle cx="8" cy="8" r="8" fill="white" /></svg>') 8 8, auto;
 }
 
 .check-c i{
@@ -7,12 +7,15 @@ body {
 }
 
 .p-0{
-    translate: 0 4px  ;
+    translate: 0 5px  ;
 }
-.check-c{
+.check-c i{
     text-decoration: none;
-    color: inherit;
+    color:black;
 }
 .check-c i:hover{
+    color: green;
+}
+#green{
     color: green;
 }
