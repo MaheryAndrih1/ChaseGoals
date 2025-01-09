@@ -2,6 +2,11 @@ const GoalItem = ({ goal, onUpdate }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [newName, setNewName] = useState(goal.name_goal);
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toISOString().replace('T', ' ').split('.')[0];
+    };
+    
     const handleUpdate = async () => {
         try {
             const csrfToken = getCookie('csrftoken');
@@ -25,6 +30,10 @@ const GoalItem = ({ goal, onUpdate }) => {
             const data = await response.json();
             if (data.status === 'success') {
                 setIsEditing(false);
+                // Format the date before triggering update
+                if (data.goal && data.goal.date_created) {
+                    data.goal.date_created = formatDate(data.goal.date_created);
+                }
                 onUpdate();
             } else {
                 throw new Error('Update failed');
@@ -57,7 +66,7 @@ const GoalItem = ({ goal, onUpdate }) => {
                                     <h5><span>{goal.id_goal}</span> - {goal.name_goal}</h5>
                                 </div>
                                 <h6 className="card-subtitle mb-2 text-body-secondary">
-                                    {goal.date_created}
+                                    {formatDate(goal.date_created)}
                                 </h6>
                             </React.Fragment>
                         )}

@@ -1,5 +1,5 @@
 html {
-    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><circle cx="8" cy="8" r="8" fill="white" /></svg>') 8 8, auto;
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="16" cy="16" r="8" fill="teal" style="mix-blend-mode: difference"/></svg>'), auto;
 }
 
 .check-c i{
@@ -18,4 +18,7 @@ html {
 }
 #green{
     color: green;
+}
+.btn-light{
+    background-color:#28728f;
 }

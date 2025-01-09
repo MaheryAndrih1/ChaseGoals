@@ -27,6 +27,7 @@ def add_goal(request):
         form = GoalForm(request.POST)
         if form.is_valid:
             goal=form.save()
+            return redirect('home')
     else:
         form = GoalForm()
             
