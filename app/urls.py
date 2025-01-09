@@ -6,4 +6,5 @@ urlpatterns = [
     path('delete_goal/<int:goal_id>/', views.delete_goal, name='delete goal'),
     path('update_goal/<int:goal_id>/',views.update_goal, name='update goal'),
     path('achieved_goal/<int:goal_id>/', views.achieved_goal, name="achieved goal" ),
+    path('goals/', views.get_goals, name='get_goals'),
 ]
